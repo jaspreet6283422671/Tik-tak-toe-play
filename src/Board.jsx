@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import Box from "./Box";
-import { Button } from "@fluentui/react";
 
 function Board() {
   const [state, setState] = useState(Array(9).fill(null));
   const [cturn, setTurn] = useState("X");
   const [winner, setwinner] = useState("");
-  const[use,setuse]=useState("a")
+  const [use, setuse] = useState("a");
   const checkwinner = (state) => {
     const win = [
       [0, 1, 2],
@@ -26,10 +25,9 @@ function Board() {
       }
     }
   };
- function retry()
- {
-  setState(Array(9).fill(null));
- }
+  function retry() {
+    setState(Array(9).fill(null));
+  }
   const handleindex = (index) => {
     // const statecopt=Array.from(state);
 
@@ -63,13 +61,17 @@ function Board() {
           <Box onClick={() => handleindex(7)} value={state[7]} />
           <Box onClick={() => handleindex(8)} value={state[8]} />
         </div>
-         
+
         <div className="line"></div>
       </div>
       <div>
         <h4>{winner ? winner + "is the winner" : `${cturn} Turn`}</h4>
       </div>
-      {<button className="restart-button" onClick={retry}>Restart</button>}
+      {
+        <button className="restart-button" onClick={retry}>
+          Restart
+        </button>
+      }
     </>
   );
 }
